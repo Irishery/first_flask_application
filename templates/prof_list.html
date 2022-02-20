@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block prof_list %}
+{% block content %}
 <div class="container-fluid">
-    <span class=".fs-2 fw-bold">Список профессий</span>
+    <span class="fs-2 fw-bold">Список профессий</span>
 </div>
 {% if list == "ol" %}
+<div class="ms-3">
 <ol>
     <div class="container-fluid">
     {% for prof in prof_list %}
-    <li class=".fs-5 text">{{ prof }}</li>
+    <li class="fs-5 text">{{ prof }}</li>
     
     {% endfor %}
     </div>
@@ -17,10 +18,11 @@
 <ul>
     <div class="container-fluid">
     {% for prof in prof_list %}
-    <li class=".fs-5 text">{{ prof }}</li>
+    <li class="fs-5 text">{{ prof }}</li>
     
     {% endfor %}
     </div>
 </ul>
 {% endif %}
+</div>
 {% endblock %}

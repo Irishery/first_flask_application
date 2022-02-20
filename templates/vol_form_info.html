@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<dl class="row container-fluid">
+    {% for key in form.keys() %}
+    {% if key != 'csrf_token' %}
+    <dt class="col-sm-3">{{ key }}</dt>
+    <dd class="col-sm-9">{{ form[key] }}</dd>
+    {% endif %}
+    {% endfor %}
+</dl>
+{%  endblock %}
