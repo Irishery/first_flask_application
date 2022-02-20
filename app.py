@@ -21,5 +21,12 @@ def get_training(prof):
         img_link = "eng_train.jpg"
     return render_template("training_info.html", name=name, img_link=img_link)
 
+@app.route('/prof_list/<list>', methods=["GET"])
+def get_proflist(list):
+    profs = ['test' for _ in range(10)]
+    return render_template("prof_list.html", prof_list=profs, list=list)
+    
+
+
 
 app.run("127.0.0.1", port=8080, debug=True)

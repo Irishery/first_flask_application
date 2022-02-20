@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block prof_list %}
+<div class="container-fluid">
+    <span class=".fs-2 fw-bold">Список профессий</span>
+</div>
+{% if list == "ol" %}
+<ol>
+    <div class="container-fluid">
+    {% for prof in prof_list %}
+    <li class=".fs-5 text">{{ prof }}</li>
+    
+    {% endfor %}
+    </div>
+</ol>
+{% else %}
+<ul>
+    <div class="container-fluid">
+    {% for prof in prof_list %}
+    <li class=".fs-5 text">{{ prof }}</li>
+    
+    {% endfor %}
+    </div>
+</ul>
+{% endif %}
+{% endblock %}
