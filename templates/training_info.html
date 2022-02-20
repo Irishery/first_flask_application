@@ -1,0 +1,9 @@
+{% extends "base.html"%}
+
+{% block speciality_name %}
+<div class="container-fluid d-flex fw-bold justify-content-center">
+    <span class="fs-2 text">{{ name }}</span>
+    
+</div>
+<img src="{{url_for('static', filename='images/' + img_link)}}" class="img-fluid">
+{% endblock %}
