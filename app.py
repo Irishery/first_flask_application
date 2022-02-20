@@ -1,6 +1,8 @@
 import os
 import ast
-from src.volunteerfrom import VolForm
+
+from src.forms.volunteerfrom import VolForm
+from src.forms.em_accessform import EmAccessform
 from flask import Flask, redirect, render_template, request, url_for
 import json
 
@@ -42,8 +44,16 @@ def get_volform():
 @app.route('/form_info/<form>', methods=['GET'])
 def get_form_info(form):
     form = ast.literal_eval(form)
-    return render_template("vol_form_info.html", form=form)
+    return render_template("form_info.html", form=form)
 
+
+@app.route('/em_access', methods=["GET", "POST"])
+def get_emform():
+    form = EmAccessform()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            return redirect(url_for("get_form_info", form=form.data))
+    return render_template("em_access_form.html", form=form)
 
 
 @app.route('/prof_list/<list>', methods=["GET"])
